@@ -1,15 +1,16 @@
 version: '3.8'
+
 services:
-  web:
-    
+  backend:
     build:
-      context: ./
+      context: .
       dockerfile: Dockerfile
     ports:
-      - 6000:6000
+      - "5000:5000"
     depends_on:
       - mongo
-    
+    environment:
+      - MONGO_URL=mongodb://mongo:27017/mydatabase
 
   mongo:
     image: mongo:latest
@@ -19,5 +20,4 @@ services:
       - mongo-data:/data/db
 
 volumes:
-  
   mongo-data:
