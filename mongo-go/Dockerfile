@@ -1,4 +1,3 @@
-
 # Use the official Node.js base image with version 21.1.0
 FROM node:21.1.0
 
@@ -16,7 +15,7 @@ COPY . .
 
 
 # Expose the application port
-
+ENV MONGO_URL=mongodb://mongo:27017/mydatabase
 
 # Command to run the application
 CMD ["node", "server.js"]
